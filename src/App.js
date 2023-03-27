@@ -27,14 +27,23 @@ const App = () => {
     setSelected(Math.floor(Math.random() * anecdotes.length))
   }
 
+  const findHighest = () => {
+    const max = Math.max(...points)
+    return points.indexOf(max)
+  }
+
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p>{anecdotes[selected]}</p>
       <p>has {points[selected]} votes</p>
       <div>
         <button onClick={incrementVotes}>vote</button>
         <button onClick={randomHandler}>next anecdote</button>
       </div>
+      <h1>Anecdote with most votes</h1>
+      <p>{anecdotes[findHighest()]}</p>
+      <p></p>
     </div>
   )
 }
